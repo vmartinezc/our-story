@@ -14,8 +14,8 @@
 }
 
 .app-header {
-  background-color: #dce4ec;
-  color: white;
+  background-color: #ffffff;
+  color: black;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@
 
 .app-main {
   flex: 1;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -49,6 +49,7 @@
 }
 
 .timeline-section {
-  height: 150px;
+  height: 280px;
   flex-shrink: 0;
+  overflow-y: visible;
 }

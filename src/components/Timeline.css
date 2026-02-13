@@ -1,16 +1,34 @@
 .timeline-container {
-  background-color: #cdd3d8;
-  border-top: 2px solid #34495e;
+  background-color: #ffffff;
+  border-top: 1.5px solid #CCCCCC;
   padding: 1rem;
+  padding-bottom: 2rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 }
 
 .timeline-scroll {
   display: flex;
   gap: 2rem;
   min-width: max-content;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+
+.timeline-card {
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #f1faee;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .timeline-event {
@@ -19,7 +37,6 @@
   align-items: center;
   min-width: 150px;
   padding: 0.75rem;
-  background-color: #34495e;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -35,6 +52,21 @@
   font-weight: bold;
   color: #3498db;
   margin-bottom: 0.5rem;
+}
+
+.timeline-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2C2C2C;
+  min-height: 2.5rem;
+}
+
+.timeline-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.4;
 }
 
 .timeline-content h3 {
