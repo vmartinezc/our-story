@@ -1,10 +1,24 @@
 .timeline-container {
   background-color: #ffffff;
-  border-top: 1.5px solid #CCCCCC;
+  border-top: .5px solid #CCCCCC;
   padding: 1rem;
   padding-bottom: 2rem;
   overflow-x: auto;
   overflow-y: visible;
+}
+
+.timeline-slider-wrapper {
+  padding: 1rem 0 2rem;
+  margin-bottom: 1rem;
+}
+
+.slider-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 1rem;
+  text-align: center;
+  display: block;
 }
 
 .timeline-scroll {
@@ -22,8 +36,26 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  background-color: #f1faee;
+  background-color: white;
+  border: 1px;
+  border-style: dashed;
   transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: visible;
+}
+
+.tttimeline-card::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -5px;
+  right: -5px;
+  height: 20px;
+  /* background-color: var(--washi-color, #FFB6C1); */
+  opacity: 0.7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transform: rotate(-1deg);
 }
 
 .timeline-card:hover {
@@ -39,7 +71,6 @@
   padding: 0.75rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .timeline-event:hover {
@@ -50,7 +81,7 @@
 .timeline-year {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3498db;
+  color: black;
   margin-bottom: 0.5rem;
 }
 
@@ -58,14 +89,14 @@
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #2C2C2C;
+  color: black;
   min-height: 2.5rem;
 }
 
 .timeline-card p {
   margin: 0;
   font-size: 0.875rem;
-  color: #666;
+  color: black;
   line-height: 1.4;
 }
 
@@ -81,4 +112,41 @@
   font-size: 0.875rem;
   color: #bdc3c7;
   text-align: center;
+}
+
+/* Sticker styles */
+.sticker {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 2;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s;
+}
+
+.timeline-card:hover .sticker {
+  transform: scale(1.1);
+}
+
+.sticker-top-left {
+  top: -8px;
+  left: -8px;
+  transform: rotate(-15deg);
+}
+
+.sticker-top-right {
+  top: -8px;
+  right: -8px;
+  transform: rotate(15deg);
+}
+
+.sticker-bottom-left {
+  bottom: -8px;
+  left: -8px;
+  transform: rotate(10deg);
+}
+
+.sticker-bottom-right {
+  bottom: -8px;
+  right: -8px;
+  transform: rotate(-10deg);
 }
