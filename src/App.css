@@ -49,7 +49,37 @@
 }
 
 .timeline-section {
-  height: 280px;
+  height: auto;
   flex-shrink: 0;
-  overflow-y: visible;
+  overflow-y: auto;
+}
+
+
+.app-main {
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+}
+
+.map-section {
+  width: 100%;
+  min-height: 50vh;
+  flex: 0 0 auto;
+}
+
+.timeline-section {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  max-height: 45vh;
+  overflow: auto;
+}
+
+@media (max-width: 480px) {
+  .timeline-section {
+    max-height: 50vh;
+  }
+  .app-header h1 {
+    font-size: 1.2rem;
+  }
 }

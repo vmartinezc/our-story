@@ -2,11 +2,13 @@ import './App.css'
 import Map from './components/Map'
 import Timeline from './components/Timeline'
 import { Provider } from "@/components/ui/provider"
+import { TimelineProvider } from './contexts/TimelineContext'
 
 
 function App() {
   return (
     <Provider>
+      <TimelineProvider>
       <div className="app-container">
         <header className="app-header">
           <h1>Our Story</h1>
@@ -22,7 +24,8 @@ function App() {
           <Timeline />
         </div>
       </main>
-    </div>
+      </div>
+      </TimelineProvider>
     </Provider>
   )
 }
