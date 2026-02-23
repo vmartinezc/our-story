@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import useMapData from '../hooks/useMapData';
-import useTimeLineEvents from '../hooks/useTimeLineEvents';
+import useTimeLineEvents from '../hooks/useTimelineEvents';
 
 function Map() {
   const { places } = useMapData();
@@ -17,7 +17,7 @@ function Map() {
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
       />
       {selectedYearCoordinates.length > 0 && selectedYearCoordinates.map(ev => (
         <Marker key={ev.id} position={ev.coordinates}>

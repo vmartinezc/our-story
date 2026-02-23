@@ -1,4 +1,3 @@
-import { s } from 'framer-motion/client';
 import { useState, useContext } from 'react';
 import TimelineContext from '../contexts/TimelineContext';
 
@@ -13,26 +12,26 @@ function useTimeLineEvents() {
 
   // Past MVP: Add this to JSON file, then import it and use it here, past that firebase implementation?
   const events = [
-    { 
-      id: 1, 
-      year: '1997', 
-      title: 'Anthony is Born', 
+    {
+      id: 1,
+      year: '1997',
+      title: 'Anthony is Born',
       description: 'Anthony is born in Dearborn Michigan, USA',
       person: 'b',
       coordinates: [42.3222599, -83.1763145]
     },
-    { 
-      id: 2, 
-      year: '1998', 
-      title: 'Valeria is Born', 
+    {
+      id: 2,
+      year: '1998',
+      title: 'Valeria is Born',
       description: 'Valeria is born in Tegucigalpa, Honduras.',
       person: 'a',
       coordinates: [14.0607, -87.1825]
     },
-      { 
-      id: 3, 
-      year: '1997', 
-      title: 'Big Move!', 
+    {
+      id: 3,
+      year: '1997',
+      title: 'Big Move!',
       description: 'Anthony\'s family moves to Rockford, MI, USA.',
       person: 'b',
       coordinates: [43.1200, -85.5600]
@@ -45,26 +44,26 @@ function useTimeLineEvents() {
       person: 'a',
       coordinates: [42.963, -85.668]
     },
-    { 
-      id: 4, 
-      year: '2019', 
-      title: 'Anthony and Valeria Meet', 
+    {
+      id: 4,
+      year: '2019',
+      title: 'Anthony and Valeria Meet',
       description: 'Anthony and Valeria meet for the first time at Steelcase during their internship',
       person: 'both',
       coordinates: [42.963, -85.668]
     },
-    { 
-      id: 5, 
-      year: '2019', 
-      title: 'Anthony and Valeria Start Dating', 
+    {
+      id: 5,
+      year: '2019',
+      title: 'Anthony and Valeria Start Dating',
       description: 'Valeria and Anthony show up to the intern happy hour. This is the first time Valeria joins, and no one else but Anthony is there -lol!. They start talking and hit it off, eventually leading to their first date.',
       person: 'both',
       coordinates: [42.963, -85.668]
     },
-    { 
-      id: 7, 
-      year: '2023', 
-      title: 'New Chapter', 
+    {
+      id: 7,
+      year: '2023',
+      title: 'New Chapter',
       description: 'Moving forward together',
       person: 'both'
     },
@@ -84,27 +83,27 @@ function useTimeLineEvents() {
     return acc;
   }, {});
 
-  // Coordinates for the currently selected year (only events that have coordinates)
+  // Coordinates for the currently selected year on the slider
   const selectedYearCoordinates = (eventsByYear[selectedYear] || [])
     .filter(e => Array.isArray(e.coordinates))
     .map(e => ({ id: e.id, coordinates: e.coordinates, title: e.title, description: e.description }));
-  
+
   const personAEvents = filteredEvents.filter(e => e.person === 'a' || e.person === 'both');
   const personBEvents = filteredEvents.filter(e => e.person === 'b' || e.person === 'both');
   const sharedEvents = filteredEvents.filter(e => e.person === 'both');
 
-  return { 
-    sortedEvents, 
-    filteredEvents, 
+  return {
+    sortedEvents,
+    filteredEvents,
     personAEvents,
     personBEvents,
     sharedEvents,
     eventsByYear,
     selectedYearCoordinates,
-    sliderValue, 
-    setSliderValue, 
-    borderColors, 
-    washiTapeColors 
+    sliderValue,
+    setSliderValue,
+    borderColors,
+    washiTapeColors
   };
 }
 
