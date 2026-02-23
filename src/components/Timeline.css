@@ -1,52 +1,222 @@
 .timeline-container {
-  background-color: #2c3e50;
-  border-top: 2px solid #34495e;
+  background-color: #ffffff;
+  border-top: .5px solid #CCCCCC;
   padding: 1rem;
+  padding-bottom: 2rem;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
+}
+
+.timeline-slider-wrapper {
+  padding: 1rem 0 2rem;
+  margin-bottom: 1rem;
+}
+
+.slider-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: block;
 }
 
 .timeline-scroll {
   display: flex;
-  gap: 2rem;
-  min-width: max-content;
+  gap: 1rem;
+  flex-wrap: wrap;
   padding: 0.5rem 0;
+  padding-bottom: 1rem;
 }
 
-.timeline-event {
+.dual-timeline-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 150px;
-  padding: 0.75rem;
-  background-color: #34495e;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  gap: 1.5rem;
+  position: relative;
 }
 
-.timeline-event:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timeline-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  min-width: 100px;
+  text-align: right;
+  padding-right: 1rem;
+  font-family: 'Georgia', serif;
+}
+
+.timeline-person-a .timeline-label {
+  color: #FF6B6B;
+}
+
+.timeline-person-b .timeline-label {
+  color: #4ECDC4;
+}
+
+.timeline-shared {
+  margin-top: 1rem;
+}
+
+.timeline-shared .timeline-label {
+  color: #45B7D1;
+  font-size: 1.2rem;
+}
+
+.timeline-card-shared {
+  transform: rotate(0deg) !important;
+  box-shadow:
+    0 0 0 2px white,
+    0 6px 12px rgba(0, 0, 0, 0.2) !important;
+  border: 6px dashed currentColor !important;
+}
+
+.timeline-card {
+  width: min(max-content, 30vw);
+  min-width: 120px;
+  max-width: 30vw;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  background-color: #f9f7f4;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: visible;
+  padding: 10px;
+  
+  /* This was with the help of the internet :) */
+  background-image: 
+    radial-gradient(circle at 0 0, transparent 3px, #f9f7f4 3px),
+    radial-gradient(circle at 100% 0, transparent 3px, #f9f7f4 3px),
+    radial-gradient(circle at 0 100%, transparent 3px, #f9f7f4 3px),
+    radial-gradient(circle at 100% 100%, transparent 3px, #f9f7f4 3px),
+    radial-gradient(circle, transparent 2px, #f9f7f4 2px);
+  background-size: 
+    10px 10px,
+    10px 10px,
+    10px 10px,
+    10px 10px,
+    10px 10px;
+  background-position: 
+    top left,
+    top right,
+    bottom left,
+    bottom right,
+    0 0;
+  background-repeat: 
+    repeat-x,
+    repeat-x,
+    repeat-x,
+    repeat-x,
+    repeat;
+    
+  box-shadow:
+    0 0 0 2px white,
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 6px dashed currentColor;
+  box-sizing: border-box;
+
+  transform: rotate(-1deg);
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 899px) {
+  .timeline-label {
+    display: none;
+  }
+
+  .timeline-card {
+    width: min(max-content, 35vw);
+    min-width: 140px;
+    max-width: 35vw;
+    padding: 8px;
+  }
+}
+
+@media (min-width: 900px) {
+  .dual-timeline-container {
+    flex-direction: column;
+  }
+
+  .timeline-scroll {
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px) rotate(-1deg) scale(1.02);
+  box-shadow: 
+    0 0 0 2px white,
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.timeline-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.timeline-card:nth-child(even):hover {
+  transform: translateY(-8px) rotate(1deg) scale(1.02);
+}
+
+.timeline-card:nth-child(3n) {
+  transform: rotate(-0.5deg);
+}
+
+.timeline-card:nth-child(3n):hover {
+  transform: translateY(-8px) rotate(-0.5deg) scale(1.02);
 }
 
 .timeline-year {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #3498db;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
 }
 
-.timeline-content h3 {
-  margin: 0 0 0.25rem 0;
+.timeline-card h3 {
+  margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  color: white;
-  text-align: center;
+  font-weight: 600;
+  color: #2c3e50;
+  min-height: 2.2rem;
+  font-family: 'Georgia', serif;
+  overflow: visible;
+  text-overflow: unset;
+  display: block;
 }
 
-.timeline-content p {
+.timeline-card p {
   margin: 0;
-  font-size: 0.875rem;
-  color: #bdc3c7;
-  text-align: center;
+  font-size: 0.95rem;
+  color: #34495e;
+  line-height: 1.35;
+  font-family: 'Georgia', serif;
+  overflow: visible;
+  word-break: break-word;
+}
+
+.timeline-year {
+  flex: 0 0 auto;
+}
+
+.timeline-card-body {
+  flex: 1 1 auto;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
