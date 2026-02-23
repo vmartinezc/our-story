@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css';
 import useMapData from '../hooks/useMapData';
-import useTimeLineEvents from '../hooks/useTimelineEvents';
+import useTimeLineEvents from '../hooks/useTimeLineEvents';
 
 function Map() {
   const { places } = useMapData();
