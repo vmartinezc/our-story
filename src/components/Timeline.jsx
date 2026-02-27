@@ -44,7 +44,7 @@ function Timeline() {
             </Slider.Track>
             <Slider.Thumb index={0} />
           </Slider.Control>
-          <Slider.MarkerGroup>
+          <Slider.MarkerGroup className="slider-markers">
             {(() => {
               const yearMarkers = sortedEvents.reduce((acc, event, idx) => {
                 if (!acc.seen.has(event.year)) {

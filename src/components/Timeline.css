@@ -21,6 +21,12 @@
   display: block;
 }
 
+.slider-markers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
 .timeline-scroll {
   display: flex;
   gap: 1rem;
