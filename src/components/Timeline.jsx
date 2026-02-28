@@ -2,7 +2,7 @@ import './Timeline.css';
 import { useState } from 'react';
 import { Card } from "@chakra-ui/react"
 import { Slider } from "@chakra-ui/react"
-import useTimeLineEvents from '../hooks/useTimelineEvents';
+import useTimeLineEvents from '../hooks/useTimeLineEvents';
 
 
 function Timeline() {
